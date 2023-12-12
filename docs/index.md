@@ -28,7 +28,7 @@ Plugins <advanced_usage/plugins>
 :caption: Subfunctions
 
 Introduction <subfunctions/introduction>
-Using without System Tempalte <subfunctions/using_without_system_template>
+Using without System Template <subfunctions/using_without_system_template>
 Syntax <subfunctions/syntax>
 Editiong Lang Files <subfunctions/editiong_lang_files>
 ```
@@ -45,7 +45,7 @@ Python Templates <python_templates/python_templates>
 :caption: Json Template
 
 Introduction <json_template/introduction>
-Using without System Tempalte <json_template/using_without_system_template>
+Using without System Template <json_template/using_without_system_template>
 Syntax <json_template/syntax>
 ```
 

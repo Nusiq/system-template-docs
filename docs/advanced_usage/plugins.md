@@ -3,7 +3,7 @@
 
 The plugins are Python files stored in `_plugins` foler. There are two types of plugins:
 - global plugins - stored in `<filters-data>/system_template/_plugins` folder. These are shared between all systems.
-- local plugins - stored in `<filters-data>/system_tempalte/<system>/_plugins` folder. These are specific to the system.
+- local plugins - stored in `<filters-data>/system_template/<system>/_plugins` folder. These are specific to the system.
 
 Plugins are executed using `exec` function, and then their local scope is merged with the scope of the system. If the local plugin defines functions/variables with the same name as the global plugin, the local one will be used.
 
