@@ -3,7 +3,7 @@
 If you're familiar with Python and JSON, the syntax used by this filter should be easy to understand.
 
 ## Backticks
-If a key or a string value is surrounded with backticks, the filter will try to evaluate the expression inside the backticks and replace the key or the value.
+When a key or a string value is surrounded by backticks, the filter evaluates the expression inside the backticks and replaces the key or value accordingly.
 
 *Input*
 ```json
@@ -21,7 +21,7 @@ If a key or a string value is surrounded with backticks, the filter will try to 
 ```
 Note that the `5+5` expression must be converted to a string. Passing a number as a key would result in an error.
 
-## Using variables and the scope.json file
+## Using Variables and the `scope.json` File
 You can use variables defined in the `scope.json` file.
 
 *scope.json*
@@ -43,9 +43,9 @@ You can use variables defined in the `scope.json` file.
 }
 ```
 
-## Defining objects in loops
+## Defining Objects in Loops
 
-If a key evaluates to a list, the filter will generate multiple JSON objects with the keys based on each element of the list.
+If a key evaluates to a list, the filter generates multiple JSON objects with keys based on each element of the list.
 
 *Input*
 ```json
@@ -62,7 +62,7 @@ If a key evaluates to a list, the filter will generate multiple JSON objects wit
 ```
 
 
-## The `K` object
+## The `K` Object
 There is a special `K` object that lets you extend the scope by providing it with new variables. The `K` object is especially useful when you define your keys in a loop. It can be used to pass the variables from the loop into the generated JSON objects.
 
 *Input*
@@ -87,13 +87,13 @@ There is a special `K` object that lets you extend the scope by providing it wit
 The first value of `K` is the key to the generated JSON object,
 the rest of the arguments must be keyword arguments. The keyword arguments are passed to the scope of the object.
 
-## The `__unpack__` and `__value__` keys
+## The `__unpack__` and `__value__` Keys
 
 The `__unpack__` and `__value__` keys are special keys that can be used to generate objects inside a list. They only work inside objects directly contained in a list.
 
 Using the `__unpack__` key inside such an object marks it as a template for generating values for the list. The value of `__unpack__` must be a list of dictionaries. Each dictionary is a scope of variables to be used when evaluating the template. The evaluated values are unpacked into the list in place of the original object.
 
-If the generated values shouldn't be objects, but other types of values, you can use the `__value__` key. If the `__value__` key is present, the generated values will be the values of the `__value__` keys. The `__value__` key can be anything including an expression surrounded with backticks.
+If the generated values shouldn't be objects, but other types of values, you can use the `__value__` key. If the `__value__` key is present, the generated values will be the values of the `__value__` keys. The `__value__` key can be anything, including an expression surrounded by backticks.
 
 **Example 1:**
 
@@ -156,9 +156,9 @@ If the generated values shouldn't be objects, but other types of values, you can
 ```
 
 ````{warning}
-When using a dictionary in the `__unpack__` list, to define the scope for the values in the generated objects, the scope is not visible to other keys in the same object. If you want to generate the keys of the generated objects you havet to use the `__value__` key.
+When using a dictionary in the `__unpack__` list to define the scope for the values in the generated objects, the scope is not visible to other keys in the same object. If you want to generate the keys of the generated objects, you have to use the `__value__` key.
 
-In Minecraft, it's useful for defining the transitions of the animation controllers, where each transition is a separate object, where the keys are the names of the transition targets and the values are the transition conditions.
+In Minecraft, it's useful for defining the transitions of the animation controllers, where each transition is a separate object, and the keys are the names of the transition targets, and the values are the transition conditions.
 
 **Example:**
 ```
@@ -189,9 +189,9 @@ In Minecraft, it's useful for defining the transitions of the animation controll
 
 ````
 
-## The `JoinStr` object
+## The `JoinStr` Object
 
-The `JoinStr` object can be used to join list of strings into a single string. Every list that starts with a `JoinStr` object is expected to contain only strings. The evaluated list discards the `JoinStr` object and uses the rest of the list as arguments for the `str.join` method. You can use `JoinStr` in combination with the `__unpack__` and `__value__` keys as long as the result contains only strings.
+The `JoinStr` object can be used to join a list of strings into a single string. Every list that starts with a `JoinStr` object is expected to contain only strings. The evaluated list discards the `JoinStr` object and uses the rest of the list as arguments for the `str.join` method. You can use `JoinStr` in combination with the `__unpack__` and `__value__` keys as long as the result contains only strings.
 
 **Example 1:**
 

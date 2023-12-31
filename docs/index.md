@@ -30,7 +30,7 @@ Plugins <advanced_usage/plugins>
 Introduction <subfunctions/introduction>
 Using without System Template <subfunctions/using_without_system_template>
 Syntax <subfunctions/syntax>
-Editiong Lang Files <subfunctions/editiong_lang_files>
+Editing Lang Files <subfunctions/editing_lang_files>
 ```
 
 ```{toctree}
@@ -51,4 +51,4 @@ Syntax <json_template/syntax>
 
 # Introduction
 
-This is a documentation for the [System Template](https://github.com/Nusiq/regolith-filters/tree/master/system_template) Regolith filter. Regolith is a tool for generating Minecraft Resource Packs and Behavior Packs. You can learn more about the Regolith project on its [GitHub page](https://github.com/Bedrock-OSS/regolith/).
+Welcome to the documentation for the [System Template](https://github.com/Nusiq/regolith-filters/tree/master/system_template) Regolith filter. Regolith is a tool for generating Minecraft Resource Packs and Behavior Packs. Learn more about the Regolith project on its [GitHub page](https://github.com/Bedrock-OSS/regolith/).

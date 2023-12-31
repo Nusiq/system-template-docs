@@ -1,7 +1,7 @@
 (debugging)=
 # Debugging
 
-If you specify the `log_path` property in the `config.json` file, system_template can create a log file for you from its successful runs. The log file contains information about the generated files. This can be helpful while debugging when multiple files are merged into one and you want to know which systems participated in the process. The code below shows an example log with additional comments as an explanation:
+If you specify the `log_path` property in the `config.json` file, `system_template` can create a log file for you after its successful runs. The log file contains information about the generated files, which can be helpful during debugging, when multiple files are merged into one, and you want to understand which systems participated in the process. The code below provides an example log with additional comments for clarification:
 
 ```json
 [
@@ -31,4 +31,4 @@ If you specify the `log_path` property in the `config.json` file, system_templat
 ]
 ```
 
-If you're adding the `log_path` to your `config.json` file, remember to add it to the `.gitignore` file as well. Otherwise, you'll be committing the log file to your repository.
+If you're adding the `log_path` to your `config.json` file, remember to include it in the `.gitignore` file as well. Otherwise, you'll end up committing the log file to your repository.

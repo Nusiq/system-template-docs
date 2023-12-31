@@ -1,11 +1,16 @@
 (system-template-filter)=
 # System Template Introduction
 
-System Template is a filter that aims to improve the reusability of the code in Minecraft Resource Packs and Behavior Packs, by grouping the closely related files into systems. It greatly improves the ease of copying the code between the projects, even if the systems modify the same files thanks to its merging capabilities. The files in a system can use variables configured in the global and system's scope. A higly configurable systems can be used in the same project multiple times, with different configurations, hence the name "System Template" - a configurable system can be used as a template for creating multiple things.
+System Template, a Regolith filter, helps users improve code reusability in Minecraft Resource Packs and Behavior Packs. Unlike traditional addon development, where files are often grouped by type, System Template allows users to organize files into systems based on their purpose.
 
-A system can have various forms. It's up to you to decide how to group your code. Below there are some examples of things that can be implemented as systems:
-- a single Minecraft entity
-- multiple Minecraft entities that cannot exist without each other
-- an armor set with all of its game logic
+This approach simplifies code organization, providing an intuitive structure that makes it easier to understand relationships between different elements. Importantly, System Template has merging capabilities, allowing users to merge multiple files seamlessly. This is particularly useful for files that hold multiple configurations, such as `sounds_definitions.json` or the player's behavior file. Different systems can modify these files, and System Template merges them to create a unified final file used in the actual Resource Pack or Behavior Pack.
 
-System templates and easy to reuse between multiple project, because every template has its dedicated folder. In most cases importing a system to another project is as easy as copying the folder with the system.
+A system can take various forms, allowing users to decide how to structure their code. Here are examples of things that can be implemented as systems:
+
+- A single Minecraft entity
+- Multiple Minecraft entities that are interdependent
+- An armor set with comprehensive game logic
+
+Files within a system can use variables system scopes. Highly configurable systems can be used multiple times within the same project, each with distinct configurations, giving rise to the name "System Template" – a configurable systems can serve as a templates for creating diverse elements.
+
+System templates are effortlessly reusable across multiple projects, each having its dedicated folder. Importing a system into another project is often as straightforward as copying the folder containing the system.
