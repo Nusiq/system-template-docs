@@ -1,5 +1,9 @@
 # Extending Player Behavior
 
+```{note}
+You can find the complete source code for this tutorial in the [Flight Ability](https://github.com/Nusiq/System-Template-Examples/tree/master/regolith/filters_data/system_template/flight_ability) system of the System Template Examples respository.
+```
+
 ```{image} ./extending_player_behavior/result.png
 :alt: stone_golem.entity.png
 :class: bg-primary

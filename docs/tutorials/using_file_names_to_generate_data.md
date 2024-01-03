@@ -1,5 +1,9 @@
 # Using File Names To Generate Data
 
+```{note}
+You can find the complete source code for this tutorial in the [Ore Golem](https://github.com/Nusiq/System-Template-Examples/tree/master/regolith/filters_data/system_template/ore_golem) system of the System Template Examples respository.
+```
+
 ```{image} ./using_file_names_to_generate_data/result.png
 :alt: ore_golem.png
 :class: bg-primary

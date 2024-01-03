@@ -1,6 +1,10 @@
 (simple-entity)=
 # Simple Entity
 
+```{note}
+You can find the complete source code for this tutorial in the [Stone Golem](https://github.com/Nusiq/System-Template-Examples/tree/master/regolith/filters_data/system_template/stone_golem) system of the System Template Examples respository.
+```
+
 ```{image} ./simple_entity/result.png
 :alt: stone_golem.png
 :class: bg-primary
@@ -9,8 +13,6 @@
 ```
 
 This tutorial describes how to create a simple entity using System Template. The setup assumes you're utilizing the default {ref}`Auto Map<custom-auto-mapping>` settings.
-
-You can find the complete source code for this tutorial in the [Stone Golem](https://github.com/Nusiq/System-Template-Examples/tree/master/regolith/filters_data/system_template/stone_golem) system of the System Template Examples respository.
 
 ## System File Structure
 
