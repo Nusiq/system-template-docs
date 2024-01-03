@@ -1,3 +1,4 @@
+(json-template-syntax)=
 # Syntax
 
 If you're familiar with Python and JSON, the syntax used by this filter should be easy to understand.

@@ -10,6 +10,16 @@ The _map.py File <introduction/the_mappy_file>
 
 ```{toctree}
 :hidden:
+:caption: Tutorials
+
+Simple Entity <tutorials/simple_entity>
+Extending Player Behavior <tutorials/extending_player_behavior>
+System Template With Scripting <tutorials/system_template_with_scripting>
+Using File Names To Generate Data <tutorials/using_file_names_to_generate_data>
+```
+
+```{toctree}
+:hidden:
 :caption: Advanced System Template Features
 
 AUTO mapping <advanced_usage/auto_mapping>
