@@ -14,3 +14,7 @@ A system can take various forms, allowing users to decide how to structure their
 Files within a system can use variables system scopes. Highly configurable systems can be used multiple times within the same project, each with distinct configurations, giving rise to the name "System Template" – a configurable systems can serve as a templates for creating diverse elements.
 
 System templates are effortlessly reusable across multiple projects, each having its dedicated folder. Importing a system into another project is often as straightforward as copying the folder containing the system.
+
+## Contact
+
+System Template has a dedicated channel on the [Bedrock OSS Discord server](https://discord.gg/Bqgzp8es2n) where you can ask questions and get help.
