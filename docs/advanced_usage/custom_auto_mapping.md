@@ -45,3 +45,7 @@ This example defines the following rules:
 - Files ending with `.entity.png` will be placed in the `RP/textures/entity` folder, but the `.entity.png` ending will be replaced with `.png`.
 - Files ending with `_entity.png` will be placed in the `RP/textures/entity` folder. This is a leftover from the older version of the System Template, where the `replace_extension` property didn't exist. It's kept for compatibility reasons, and it's recommended to use the `.entity.png` ending instead.
 - Files ending with `.bp_ac.py` will be placed in the `BP/animation_controllers` folder, but the `.bp_ac.py` ending will be replaced with `.bp_ac.json`. Note that when you change the extension from `.py` to `.json`, the content of the Python file is evaluated and then saved using the JSON format.
+
+## Dynamic Auto Mapping
+
+The `auto_map.json` file is evaluated using {ref}`JSON Template<json-template>` with access to the {ref}`global scope<global-scope>` and {ref}`global plugins<plugins>`. This means you can adjust the `auto_map.json` output paths based on the values from the variables in these sources. This feature is particularly useful when creating systems that export files into different, namespaced folders based on the project they're used in.

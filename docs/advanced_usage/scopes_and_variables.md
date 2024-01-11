@@ -34,6 +34,7 @@ The default scope provides some basic variables for your convenience and special
 - `true` and `false` - aliases for `True` and `False`, useful for writing JSON-like Python files with {ref}`Python Templates<python-templates>`
 - `AUTO`, `AUTO_FLAT`, `AUTO_SUBFOLDER`, and `AUTO_FLAT_SUBFOLDER` - special variables used for {ref}`AUTO mapping<auto-mapping>`.
 
+(global-scope)=
 ## Global Scope
 The global scope is defined by the `scope.json` file, located in the root folder of the `system_template` filter by default or in the folder specified in the {ref}`Filter's configuration<installation-and-configuration>`.
 
