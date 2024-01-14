@@ -16,6 +16,7 @@ Simple Entity <tutorials/simple_entity>
 Extending Player Behavior <tutorials/extending_player_behavior>
 System Template With Scripting <tutorials/system_template_with_scripting>
 Using File Names To Generate Data <tutorials/using_file_names_to_generate_data>
+Namespacing Addons <tutorials/namespacing_addons.md>
 ```
 
 ```{toctree}
