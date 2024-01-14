@@ -1,7 +1,7 @@
 # System Template With Scripting
 
 ```{note}
-You can find the complete source code for this tutorial in the [Double Jump Boots](https://github.com/Nusiq/System-Template-Examples/tree/master/regolith/filters_data/system_template/double_jump_boots) system of the System Template Examples respository.
+You can find the complete source code for this tutorial in the [Double Jump Boots](https://github.com/Nusiq/System-Template-Examples/tree/3.4.0/regolith/filters_data/system_template/double_jump_boots) system of the System Template Examples respository.
 ```
 
 This tutorial demonstrates how to create systems that utilize the Scripting API. While System Template cannot parse JavaScript files, it can append content to them as if they were regular text files. This feature allows you to create a main script file by merging multiple smaller files together, where the main script imports the files containing the actual code.
