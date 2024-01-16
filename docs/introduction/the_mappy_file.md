@@ -41,6 +41,7 @@ Every object in the `_map.py` list follows the same structure.
 - `json_template`
 - `on_conflict`
 - `subfunctions`
+- `file_type`
 
 ### source
 
@@ -93,3 +94,6 @@ For more details on handling conflicting files, refer to the {ref}`Merging Files
 
 The `subfunctions` property enables/disables the evaluation of the file using the `subfunctions` module. It's only available for `.mcfunction` and `.lang` files. It is enabled by default for `.mcfunction` files and disabled for `.lang` files. Read more about the `subfunctions` module in the {ref}`Subfunctions<subfunctions>` section.
 
+### file_type
+
+The `file_type` property informs System Template about the file's type, both for the source and target files. It takes precedence over the default behavior determined by the file extension. This feature proves beneficial when the file extension does not align with the actual file type, which can be essential when working with tools that require a specific file extension but operate with a file format recognized by System Template. For further details on the `file_type` property, refer to the {ref}`Custom File Types <custom-file-types>` section.

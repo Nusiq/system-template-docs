@@ -1,8 +1,10 @@
 (merging-files)=
 # Merging Files
-The primary goal of System Template is to enable users to group related files together into directories, making it easier to reuse them in other projects and maintaining organized code. However, in Minecraft, it's common for a system to need modifications to common files shared by multiple systems. For example, you can't add new sounds to the game without modifying the `sound_definitions.json` file and introducing new abilities to the player often involves adjustments to the player's behavior (in the default setup of System Template, this corresponds to the `player.behavior.json` file).
+The primary goal of System Template is to enable users to group related files together into directories, making it easier to reuse them in other projects and maintaining organized code. However, in Minecraft, it's common for a system to need modifications to common files shared by multiple systems. For example, you can't add new sounds to the game without modifying the `sound_definitions.json` file, and introducing new abilities to the player often involves adjustments to the player's behavior (in the default setup of System Template, this corresponds to the `player.behavior.json` file).
 
 To solve this problem, System Template offers various methods for merging files based on their types. You can enable file merging in your {ref}`Mapping Rules<the-mappy-file>` by using the `on_conflict` property. You also have the option to overwrite or ignore conflicting files or throw an error if you don't expect any conflicts.
+
+Merging files depends on their type. The following sections describe what merging options are available for each file type. If you need to treat a file as a different type, you can override its type using the {ref}`file_type <custom-file-types>` property.
 
 ## Merging JSON Files
 JSON files (`.json` or `.material`) support a single method of merging, which can be enabled by setting the `on_conflict` property to `"merge"`. The `"merge"` option tries to keep as much information from both files as possible, with the following merging rules:

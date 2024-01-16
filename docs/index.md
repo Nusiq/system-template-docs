@@ -26,6 +26,7 @@ Namespacing Addons <tutorials/namespacing_addons.md>
 AUTO mapping <advanced_usage/auto_mapping>
 Custom AUTO mapping <advanced_usage/custom_auto_mapping>
 Merging Files <advanced_usage/merging_files>
+Custom File Types <advanced_usage/custom_file_types>
 Scopes and Variables <advanced_usage/scopes_and_variables>
 Grouped Systems <advanced_usage/grouped_systems>
 Shared Files <advanced_usage/shared_files>
