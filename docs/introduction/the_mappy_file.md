@@ -49,7 +49,15 @@ The path to the source file relative to the folder of the system. The value of t
 
 ### target
 
-The `target` property is used to define where files matched by the `source` should be exported. It can be a string or one of the keywords used for the auto mapping. Read more about the auto mapping in the {ref}`AUTO mapping<auto-mapping>` section.
+The `target` property specifies the export destination for files identified by the `source`. It can either be a string representing a path or one of the keywords utilized in auto-mapping.
+
+When using a path string, start with `RP/`, `BP/`, or `data/`, indicating the export to the resource pack, behavior pack, or data folder, respectively.
+
+```{warning}
+If a system uses the `data/` target and exports to a directory of a self-modifying filter (a filter utilizing `"exportData": true`), the changes applied by System Template will become permanent. This is because filters with the `exportData` flag retain changes applied to their directory during the execution of the `regolit run` command.
+```
+
+If the target value corresponds to an auto-mapping keyword, the destination is determined by the rules outlined in the {ref}`AUTO mapping<auto-mapping>` section.
 
 ### scope
 

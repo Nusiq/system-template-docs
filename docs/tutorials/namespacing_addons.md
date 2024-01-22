@@ -15,7 +15,7 @@ In this tutorial, you'll learn:
 - How to leverage the {ref}`Plugins <plugins>` feature to modify a file, adding a namespace to it before export, without relying on {ref}`Python Templates <python-templates>` or {ref}`JSON Template <json-template>`.
 
 ```{warning}
-In this tutorial, we use custom file extensions prefixed with `.namespaced` (e.g., `.namespaced.entity.png`). This is implemented this way because the system presented here is part of the [System-Template-Examples](https://github.com/Nusiq/System-Template-Examples/tree/3.5.0) repository, which contains non-namespaced systems. In a normal scenario, you would likely namespace everything, and the `.namespaced` prefix wouldn't be needed.
+In this tutorial, we use custom file extensions prefixed with `.namespaced` (e.g., `.namespaced.entity.png`). This is implemented this way because the system presented here is part of the [System-Template-Examples](https://github.com/Nusiq/System-Template-Examples/tree/3.6.0) repository, which contains non-namespaced systems. In a normal scenario, you would likely namespace everything, and the `.namespaced` prefix wouldn't be needed.
 ```
 
 ## System File Structure

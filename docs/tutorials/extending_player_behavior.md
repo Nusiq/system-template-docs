@@ -1,7 +1,7 @@
 # Extending Player Behavior
 
 ```{note}
-You can find the complete source code for this tutorial in the [Flight Ability](https://github.com/Nusiq/System-Template-Examples/tree/3.5.0/regolith/filters_data/system_template/flight_ability) system of the System Template Examples respository.
+You can find the complete source code for this tutorial in the [Flight Ability](https://github.com/Nusiq/System-Template-Examples/tree/3.6.0/regolith/filters_data/system_template/flight_ability) system of the System Template Examples respository.
 ```
 
 ```{image} ./extending_player_behavior/result.png
