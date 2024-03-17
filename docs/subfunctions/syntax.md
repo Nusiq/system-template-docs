@@ -253,7 +253,7 @@ say hello 20*100=2000
 ### `foreach` - generating code from collections
 #### Syntax
 ```text
-for <[index] [variable] [expression]>:
+foreach <[index] [variable] [expression]>:
     [body]
 - variable: the variable used in the for loop added to the scope for `eval`
 - index: a name of the variable used to keep track of the item index in the
