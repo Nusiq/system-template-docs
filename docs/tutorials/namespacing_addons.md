@@ -1,3 +1,4 @@
+(namespacing-addons)=
 # Namespacing Addons
 
 ```{image} ./namespacing_addons/result.png
@@ -88,7 +89,7 @@ add_geo_namespaces(
 ]
 ```
 
-Note that the `_map.py` file starts by calling two functions - `add_geo_namespaces` and `add_animation_namespaces`. They will be explained {ref}`later <namespacing-tutorial-namespace-plugin>`, but for now, you should know that they return an empty list, not affecting the content of the `_map.py` file in any way. In Python, the `+` operator concatenates lists. When concatenating an empty list to another list, you get the same list.
+Note that the `_map.py` file starts by calling two functions - `add_geo_namespaces` and `add_animation_namespaces`. They are explained {ref}`later <namespacing-tutorial-namespace-plugin>`, but for now, you should know that they return an empty list, not affecting the content of the `_map.py` file in any way. In Python, the `+` operator concatenates lists. When concatenating an empty list to another list, you get a list with the same content as the original list.
 
 ## System Files
 
@@ -274,7 +275,7 @@ The texture uses the `.namespaced.entity.png` extension. The mapping is defined 
 }
 
 ```
-The behavior uses {ref}`JSON template <json-template>` to insert the namespace into the identifier.
+The behavior uses {ref}`JSON template <json-template>` to insert the namespace into the identifier. This is an alternative way of adding a namespace that doesn't require writing a plugin.
 
 ### snail.entity.json
 ```json

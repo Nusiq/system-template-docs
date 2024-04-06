@@ -1,18 +1,22 @@
+(system-template-with-scripting)=
 # System Template With Scripting
 
 ```{note}
 You can find the complete source code for this tutorial in the [Double Jump Boots](https://github.com/Nusiq/System-Template-Examples/tree/3.6.0/regolith/filters_data/system_template/double_jump_boots) system of the System Template Examples respository.
 ```
 
-This tutorial demonstrates how to create systems that utilize the Scripting API. While System Template cannot parse JavaScript files, it can append content to them as if they were regular text files. This feature allows you to create a main script file by merging multiple smaller files together, where the main script imports the files containing the actual code.
+This tutorial demonstrates a simplified JavaScript based workflow for creating systems that utilize the Scripting API. This workflow doesn't requrie using any additional dependencies, like other filters or NodeJS. For more advanced use of scripting that unlocks using TypeScript and Npm modules, see the {ref}`System Template Esbuild<system-template-esbuild>` filter. The TypeScript-based workflow is explained in detail in the {ref}`next tutorial<system-template-with-scripting-and-typescript>`.
+
+While System Template cannot parse JavaScript files, it can append content to them as if they were regular text files. This feature allows you to create script files by merging multiple smaller files together. You can use it to build the main script file that runs files containing the actual code using the `import` statements.
 
 In this example, the system implements boots that enable the player to perform a double jump.
 
 ## System Template and Scripting API Workflow
 
-The workflow suggested in this tutorial allows you to leverage the static type checking of VS Code and use System Template to merge the files together.
+Unfortunately, System Template doesn't support using TypeScript files and compiling them to JavaScript during the build process on its own. If you choose to stick to using System Tempalte without additional filters that can help it to compile the code, you can still get a decent developer experience by using JSDoc to annotate your code. Additionally, you can obtain type hints for `@minecraft/server` in VS Code by installing it using `npm install @minecraft/server@VERSION_NUMBER` (assuming you already have NodeJS installed on your computer).
 
-Unfortunately, System Template doesn't support using TypeScript files and compiling them to JavaScript during the build process. However, you can still get a decent developer experience by using JSDoc to annotate your code. Additionally, you can obtain type hints for `@minecraft/server` in VS Code by installing it using `npm install @minecraft/server@VERSION_NUMBER` (assuming you already have NodeJS installed on your computer).
+The workflow suggested in this tutorial allows you to leverage the static type checking of VS Code and use System Template to merge the files together, but it doesn't let you use Npm modules or TypeScript. It's best suited for simple projects where you don't need to use external libraries. If you're interested in more advanced workflow, see the {ref}`System Template With Scripting and TypeScript<system-template-with-scripting-and-typescript>` tutorial.
+
 
 ```{note}
 The system from this tutorial uses `@minecraft/server@1.6.0`. If you want to get type hints for it, you should run `npm install @minecraft/server@1.6.0` in your project.

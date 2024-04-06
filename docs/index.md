@@ -15,6 +15,7 @@ The _map.py File <introduction/the_mappy_file>
 Simple Entity <tutorials/simple_entity>
 Extending Player Behavior <tutorials/extending_player_behavior>
 System Template With Scripting <tutorials/system_template_with_scripting>
+System Template With Scripting and TypeScript <tutorials/system_template_with_scripting_and_typescript>
 Using File Names To Generate Data <tutorials/using_file_names_to_generate_data>
 Namespacing Addons <tutorials/namespacing_addons.md>
 ```
@@ -59,6 +60,13 @@ Python Templates <python_templates/python_templates>
 Introduction <json_template/introduction>
 Using without System Template <json_template/using_without_system_template>
 Syntax <json_template/syntax>
+```
+
+```{toctree}
+:hidden:
+:caption: System Template Esbuild
+
+System Template Esbuild <system_template_esbuild/system_template_esbuild>
 ```
 
 # Introduction
