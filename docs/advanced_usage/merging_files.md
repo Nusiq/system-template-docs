@@ -6,7 +6,19 @@ To solve this problem, System Template offers various methods for merging files 
 
 Merging files depends on their type. The following sections describe what merging options are available for each file type. If you need to treat a file as a different type, you can override its type using the {ref}`file_type <custom-file-types>` property.
 
-## Merging JSON Files
+## Merging Policies
+There are following merging policies (explained in detail in sections below):
+- append_start
+- append_end
+- merge
+- stop
+- skip
+- overwrite
+
+### Merging Text Files
+Non-JSON text files like `.mcfunction` or `.lang` provide 3 ways of merging, which can be enabled by setting the `on_conflict` property to `"append_start"` or `"append_end"`. The behavior is self-explanatory: `"append_start"` adds the content of the new file at the beginning of the existing file and `"append_end"` adds the content of the new file at the end of the existing file.
+
+### Merging JSON Files
 JSON files (`.json` or `.material`) support a single method of merging, which can be enabled by setting the `on_conflict` property to `"merge"`. The `"merge"` option tries to keep as much information from both files as possible, with the following merging rules:
 
 1. If the JSON path from the new file leads to a primitive value (string, number, boolean, null), the same value in the same JSON path is added to the merged file.
@@ -74,8 +86,13 @@ This merging approach is well-suited for most cases in Minecraft, as it does not
 This method of merging does not preserve the order of values in objects. While the order of values in objects does not matter in JSON, it may make reading the merged files more challenging.
 ```
 
-## Merging Text Files
-Non-JSON text files like `.mcfunction` or `.lang` provide 3 ways of merging, which can be enabled by setting the `on_conflict` property to `"append_start"` or `"append_end"`. The behavior is self-explanatory: `"append_start"` adds the content of the new file at the beginning of the existing file and `"append_end"` adds the content of the new file at the end of the existing file.
-
-## Other Merging Options
+### Other Merging Options
 The `on_conflict` property includes additional options (`"stop"`, `"skip"` and `"overwrite"`) that do not merge the files but handle conflicts in alternative ways. Further details can be found in the {ref}`on_conflict <on-conflict>` section of the documentation page about Mapping Rules.
+
+## The `export_once` flag
+
+If you're using one of the merging policies, that can modify an existing file (`append_start`, `append_end`, `merge`), you can set the `export_once` flag to `True` to ensure that the file is only exported once to its final location (in case of multiple system exporting the same source file to the same target location). This can be useful if multiple systems use the same {ref}`shared resource<shared-files>` which needs to modify some common target file. For example when multiple systems reuse the same sound that needs to be added to the `sound_definitions.json` file.
+
+```{warning}
+The export once option is triggered whenever the same source file is used multiple times during export to modify the same target. It does not take into account that the source file may have been used with a different scope, and thus have different contents during export. Export onece doesn't check the contents of the evaluated source file.
+```
