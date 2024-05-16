@@ -89,6 +89,7 @@ This method of merging does not preserve the order of values in objects. While t
 ### Other Merging Options
 The `on_conflict` property includes additional options (`"stop"`, `"skip"` and `"overwrite"`) that do not merge the files but handle conflicts in alternative ways. Further details can be found in the {ref}`on_conflict <on-conflict>` section of the documentation page about Mapping Rules.
 
+(export-once)=
 ## The `export_once` flag
 
 If you're using one of the merging policies, that can modify an existing file (`append_start`, `append_end`, `merge`), you can set the `export_once` flag to `True` to ensure that the file is only exported once to its final location (in case of multiple system exporting the same source file to the same target location). This can be useful if multiple systems use the same {ref}`shared resource<shared-files>` which needs to modify some common target file. For example when multiple systems reuse the same sound that needs to be added to the `sound_definitions.json` file.

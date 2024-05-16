@@ -42,6 +42,7 @@ Every object in the `_map.py` list follows the same structure.
 - `on_conflict`
 - `subfunctions`
 - `file_type`
+- `export_once`
 
 ### source
 
@@ -105,3 +106,7 @@ The `subfunctions` property enables/disables the evaluation of the file using th
 ### file_type
 
 The `file_type` property informs System Template about the file's type, both for the source and target files. It takes precedence over the default behavior determined by the file extension. This feature proves beneficial when the file extension does not align with the actual file type, which can be essential when working with tools that require a specific file extension but operate with a file format recognized by System Template. For further details on the `file_type` property, refer to the {ref}`Custom File Types <custom-file-types>` section.
+
+### export_once
+
+The export_once property lets you mark the files to be exported only once in case of multiple mappings of the same file to the same target. You can read more about this feature in the {ref}`Export Once<export-once>` section.
