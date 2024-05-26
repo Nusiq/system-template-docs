@@ -230,3 +230,41 @@ The `JoinStr` object can be used to join a list of strings into a single string.
 ```json
 "hi there hello there it's me"
 ```
+
+## Using `Ellipsis` or `...` to Skip a Key
+
+[Ellipsis in Python](https://docs.python.org/3/library/constants.html#Ellipsis) is a built-in constant that can be written as `Ellipsis` or `...`. JSON Template uses it to mark the dictionary keys for removal. JSON Template doesn't use `None` for this purpose because `None` can be a valid value in the JSON object (it's a `null` in JSON). Ellipses can be used to conditionally remove keys from the generated JSON object.
+
+**Example 1:**
+
+*Input*
+```json
+{
+    "foo": "bar",
+    "baz": "`...`"
+}
+```
+
+*Output*
+```json
+{
+    "foo": "bar"
+}
+```
+
+**Example 2:**
+
+*Input*
+```json
+{
+    "foo": "bar",
+    "baz": "`Ellipsis`"
+}
+```
+
+*Output*
+```json
+{
+    "foo": "bar"
+}
+```
