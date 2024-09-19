@@ -14,7 +14,11 @@ To enable the filter, add the following configuration to the filters list in the
             "filter": "system_template",
             "settings": {
                 "scope_path": "system_template/scope.json",
-                "systems": ["**/*"]
+                "systems": ["**/*"],
+                "prioritized_systems": [
+                    "full/path/to/system1",
+                    "full/path/to/system2"
+                ]
             }
         },
 ```
@@ -30,3 +34,6 @@ The systems property is a list of glob patterns defining which system folders th
 
 ### log_path: str
 The `log_path` is the path to a file where the log will be saved. The log contains information about which files are responsible for creating the output files and in what way. It's useful for debugging. Learn more about debugging in the {ref}`Debugging<debugging>` section of the documentation. There is no default value for this property; if not set, the log will not be saved.
+
+### prioritized_systems: list[str]
+The ordered list of the system paths that should be processed first. The items earlier in the list will be processed before the items later in the list. The default value is an empty list. Unspecified systems are be processed later, based on the alphabetical order of their full paths (including their {ref}`group paths<grouped-systems>`). The paths specified in the list should be relative to the system_tempalte data directory.
