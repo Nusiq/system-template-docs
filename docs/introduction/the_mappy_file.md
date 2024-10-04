@@ -54,6 +54,8 @@ The `target` property specifies the export destination for files identified by t
 
 When using a path string, start with `RP/`, `BP/`, or `data/`, indicating the export to the resource pack, behavior pack, or data folder, respectively.
 
+The `target` path can be a filename or a directory. If the path ends with a forward slash (`/`), the file is exported to the directory with the same name as the source file. If the path doesn't end with a forward slash, the file is exported with the specified name. Using directory paths is especially useful when combined with glob patterns in the `source` property.
+
 ```{warning}
 If a system uses the `data/` target and exports to a directory of a self-modifying filter (a filter utilizing `"exportData": true`), the changes applied by System Template will become permanent. This is because filters with the `exportData` flag retain changes applied to their directory during the execution of the `regolit run` command.
 ```
