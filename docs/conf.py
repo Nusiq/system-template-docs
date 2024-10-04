@@ -9,7 +9,7 @@
 project = 'System Template'
 copyright = '2023, Nusiq'
 author = 'Nusiq'
-release = '3.9.0'
+release = '3.10.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

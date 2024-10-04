@@ -29,6 +29,7 @@ Custom AUTO mapping <advanced_usage/custom_auto_mapping>
 Merging Files <advanced_usage/merging_files>
 Custom File Types <advanced_usage/custom_file_types>
 Scopes and Variables <advanced_usage/scopes_and_variables>
+Replacements <advanced_usage/replacements>
 Grouped Systems <advanced_usage/grouped_systems>
 Shared Files <advanced_usage/shared_files>
 Debugging <advanced_usage/debugging>

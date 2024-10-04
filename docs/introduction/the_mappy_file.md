@@ -43,6 +43,7 @@ Every object in the `_map.py` list follows the same structure.
 - `subfunctions`
 - `file_type`
 - `export_once`
+- `replacements`
 
 ### source
 
@@ -112,3 +113,7 @@ The `file_type` property informs System Template about the file's type, both for
 ### export_once
 
 The export_once property lets you mark the files to be exported only once in case of multiple mappings of the same file to the same target. You can read more about this feature in the {ref}`Export Once<export-once>` section.
+
+### replacements
+
+The replacements property allows you to define a list of replacements to be applied to the content of the source file. The replacements are applied before any other processing, such as JSON template evaluation or subfunctions. The `replacements` property is defined as a dictionary where the keys are the strings to be replaced, and the values are the strings to replace them with. You can read more about this feature in the {ref}`replacements<replacements>` section.
