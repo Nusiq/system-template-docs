@@ -3,7 +3,8 @@
 System Template offers code generation features allowing you to create files based on data provided by different scopes. Similar to programming, values from more specific scopes shadow those from less specific scopes. The following scopes are available in System Template, arranged from least specific to most specific:
 
 - Default Scope
-- Global Scope
+- Global Scope File
+- Global Scope Filter Configuration
 - Global Plugins
 - Group Scope (optional)
 - Local Plugins
@@ -35,8 +36,11 @@ The default scope provides some basic variables for your convenience and special
 - `AUTO`, `AUTO_FLAT`, `AUTO_SUBFOLDER`, and `AUTO_FLAT_SUBFOLDER` - special variables used for {ref}`AUTO mapping<auto-mapping>`.
 
 (global-scope)=
-## Global Scope
+## Global Scope File
 The global scope is defined by the `scope.json` file, located in the root folder of the `system_template` filter by default or in the folder specified in the {ref}`Filter's configuration<installation-and-configuration>`.
+
+## Global Scope Filter Configuration
+You can define variables in the `scope` property of the {ref}`filter configuration<installation-and-configuration>`. The variables defined in the `scope` property will override the variables defined in the global `scope.json` file.
 
 ## Group Scope
 The group scope is defined by the `_group_scope.json` file, located in the root folder of the group. More information about the group scope is available in the {ref}`The Structure of the Systems<the-structure-of-the-systems>` section.

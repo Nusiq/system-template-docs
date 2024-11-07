@@ -18,7 +18,10 @@ To enable the filter, add the following configuration to the filters list in the
                 "prioritized_systems": [
                     "full/path/to/system1",
                     "full/path/to/system2"
-                ]
+                ],
+                "scope": {
+                    "some_variable": "some_value"
+                }
             }
         },
 ```
@@ -28,6 +31,9 @@ Configuration settings should be placed in the `settings` property of the filter
 
 ### scope_path: str
 The scope_path is the path to a JSON file defining the global scope of variables. You can learn more about scopes in the {ref}`Scopes And Variables<scopes-and-variables>` section of the documentation. The default path is set to `system_template/scope.json`.
+
+### scope: dict
+The scope property is a dictionary of variables that will be available in the templates. No variables are set by default in this scope. The variables defined in the `scope` property will override the variables defined in the `scope_path` file. You can learn more about scopes in the {ref}`Scopes And Variables<scopes-and-variables>` section of the documentation.
 
 ### systems: list[str]
 The systems property is a list of glob patterns defining which system folders the filter should process. The default value is `["**/*"]`, meaning all system folders will be processed.
