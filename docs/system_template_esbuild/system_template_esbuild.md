@@ -2,7 +2,7 @@
 # System Template Esbuild
 
 ```{warning}
-This documentation applies to **System Template Esbuild 1.0.1**
+This documentation applies to **System Template Esbuild 2.1.0**
 ```
 A simple script compiler that uses Esbuild designed to be used with the System Template Regolith Filter. It enables the use of typescript and npm modules in your project, while still keeping your code grouped into systems.
 
@@ -30,7 +30,8 @@ Add the filter to the `filters` list in the `config.json` file of the Regolith p
         "entryPoint": "data/system_template_esbuild/main.ts",
         "outfile": "BP/scripts/main.js",
         "external": ["@minecraft/server"],
-        "scope_path": null
+        "scope_path": null,
+        "sourcemap": false
     }
 }
 ```
@@ -42,6 +43,7 @@ The filter supports the following settings:
 - `outfile: string` (optional default `'BP/scripts/main.js'`) - The output file for the build.
 - `external: string[]` (optional, default `["@minecraft/server]`) - A list of external modules to exclude from the bundle in addition to '@minecraft/server' which is included by default.
 - `scope_path: string` (optional, default `null`) - The path to the JSON file containing the scope used for evaluating entryPoint and outfile. The path starts in the filters' `data` directory. It works exactly the same as in `system_template` filter (e.g. if you set the path to `scope.json`, it will evaluate to `data/scope.json`)
+- `sourcemap: boolean` (optional, default `false`) - Whether to generate a sourcemap for the output file (`outfile`).
 
 The evaluation of the `entryPoint` and `outfile` is based on simple substitution of variables. If `entryPoint` or `outfile` are strings that start and end with a backtick ('`` ` ``'), then the string is evaluated as a template string. This is not the same as a JavaScript template string. The variables need to be surrounded by `{}` instead of `${}`. The templating also doesn't supprot any expressions, only simple variable substitution with variables defined in the scope file.
 
