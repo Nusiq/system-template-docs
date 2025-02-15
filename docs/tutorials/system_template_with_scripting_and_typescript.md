@@ -2,7 +2,7 @@
 # System Template With Scripting and TypeScript
 
 ```{note}
-You can find the complete source code for this tutorial in the [Double Jump Boots](https://github.com/Nusiq/System-Template-Examples/tree/3.6.0-1/regolith/filters_data/system_template/double_jump_boots) system of the System Template Examples respository.
+You can find the complete source code for this tutorial in the [Double Jump Boots](https://github.com/Nusiq/System-Template-Examples/tree/3.12.0/project-2-typescript/filters_data/system_template/double_jump_boots) system of the System Template Examples respository.
 ```
 
 This tutorial is a continuation of the {ref}`System Template With Scripting<system-template-with-scripting>` it shows how to switch from the pure System Template, JavaScript-based workflow to a workflow that uses the {ref}`System Template Esbuild<system-template-esbuild>` filter and TypeScript. It's recommended to read the previous tutorial first to get better understanding.

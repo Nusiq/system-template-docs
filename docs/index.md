@@ -34,6 +34,7 @@ Grouped Systems <advanced_usage/grouped_systems>
 Shared Files <advanced_usage/shared_files>
 Debugging <advanced_usage/debugging>
 Plugins <advanced_usage/plugins>
+Namespacing <advanced_usage/namespacing>
 ```
 
 

@@ -1,6 +1,10 @@
 (namespacing-addons)=
 # Namespacing Addons
 
+```{note}
+You can find the complete source code for this tutorial in the [Snail](https://github.com/Nusiq/System-Template-Examples/tree/3.12.0/project-3-namespacing/filters_data/system_template/snail) system of the System Template Examples respository.
+```
+
 ```{image} ./namespacing_addons/result.png
 :alt: result.png
 :class: bg-primary
@@ -8,15 +12,15 @@
 :align: center
 ```
 
-When your addon needs to coexist with others, there's a risk of name collisions, especially when you lack control over the other addons. System Template can aid in avoiding this issue if you follow some simple rules.
+When your addon needs to coexist with others, there's a risk of name collisions, especially when you lack control over the other addons. System Template can aid in avoiding this issue.
 
 In this tutorial, you'll learn:
-- How to create a system that automatically adds a namespace based on the addon's configuration (using the {ref}`global scope <global-scope>`).
-- How to use the {ref}`Dynamic Auto Mapping <dynamic-auto-mapping>` to automatically add a namespace to all files in the system.
-- How to leverage the {ref}`Plugins <plugins>` feature to modify a file, adding a namespace to it before export, without relying on {ref}`Python Templates <python-templates>` or {ref}`JSON Template <json-template>`.
+- How to create a system that automatically adds a project specific namespace based on the addon's configuration (using the {ref}`Namespacing<namespacing>`).
+
+The system in the tutorial uses `nusiq` as a namespace (this is the string that will be replaced in the files). The generated files use a combination of the namespace from the system (`nusiq`) and the target namespace (`xyz`). It's a common practice for namespacing add-ons, to use a mix of your personal identifier and some short code for the project, but it's more convenient to always use the same identifier in your source, to make your systems reusable. This is where the namespacing feature comes in handy.
 
 ```{warning}
-In this tutorial, we use custom file extensions prefixed with `.namespaced` (e.g., `.namespaced.entity.png`). This is implemented this way because the system presented here is part of the [System-Template-Examples](https://github.com/Nusiq/System-Template-Examples/tree/3.6.0) repository, which contains non-namespaced systems. In a normal scenario, you would likely namespace everything, and the `.namespaced` prefix wouldn't be needed.
+If this tutorial feels pointlessly easy, that's because namespacing used to be harder before the {ref}`namespace property<configuration-settings>` was introduced. Now, you basically just work the same way you would without namespacing. This tutorial is an updated version of the old tutorial that was more complex.
 ```
 
 ## System File Structure
@@ -26,22 +30,12 @@ In this tutorial, we use custom file extensions prefixed with `.namespaced` (e.g
     📁 visuals
         🗒️ snail.animation.json
         🗒️ snail.geo.json
-        🖼️ snail.namespaced.entity.png
+        🖼️ snail.entity.png
     🗒️ _map.py
     🗒️ _scope.json
     🗒️ snail.behavior.json
     🗒️ snail.entity.json
 ```
-
-Only `snail.namespaced.entity.png` uses the custom `.namespaced` extension. This is because, in normal circumstances, adding a namespace to the file path is not necessary. Most files in Minecraft are identified by an identifier defined in their content rather than their file path.
-
-Here's a list of files identified by their paths:
-- Mcfunction files (`.mcfunction`)
-- Loot tables (`.loot.json`)
-- Structures (`.mcstructure`)
-- Trade tables (`.trade.json`)
-- Sound Files (`.ogg`, `.wav`, `.mp4`, `.fsb`)
-- Texture files (`.png`, `.tga`)
 
 ## System Configuration
 
@@ -56,11 +50,7 @@ The system doesn't use any custom variables, so the scope is empty.
 ### _map.py
 
 ```python
-add_geo_namespaces(
-    "**/*.geo.json", namespace
-) + add_animation_namespaces(
-    "**/*.animation.json", namespace
-) + [
+[
     # Visuals
     {
         "source": "visuals/*.geo.json",
@@ -72,26 +62,25 @@ add_geo_namespaces(
         "target": AUTO_FLAT
     },
     {
-        "source": "visuals/*.namespaced.entity.png",
+        "source": "visuals/*.entity.png",
         "target": AUTO_FLAT
     },
     # Entity definition
     {
         "source": "snail.behavior.json",
         "target": AUTO_FLAT,
-        "json_template": True
     },
     {
         "source": "snail.entity.json",
         "target": AUTO_FLAT,
-        "json_template": True
     }
 ]
 ```
-
-Note that the `_map.py` file starts by calling two functions - `add_geo_namespaces` and `add_animation_namespaces`. They are explained {ref}`later <namespacing-tutorial-namespace-plugin>`, but for now, you should know that they return an empty list, not affecting the content of the `_map.py` file in any way. In Python, the `+` operator concatenates lists. When concatenating an empty list to another list, you get a list with the same content as the original list.
+Note that none of the files in the system use {ref}`JSON Template<json-template>`. That's because namespacing isn't the same as just using variables. It's more similar to {ref}`Replacements<replacements>` feature, but specialized for changing namespaces.
 
 ## System Files
+
+You can see below that there is absolutely nothing special about the system. The namespacing is fully handled by System Template. The files are listed below:
 
 ### visuals/snail.animation.json
 
@@ -99,7 +88,7 @@ Note that the `_map.py` file starts by calling two functions - `add_geo_namespac
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.snail.walk": {
+		"animation.nusiq.snail.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved*0.3",
 			"animation_length": 1,
@@ -115,7 +104,6 @@ Note that the `_map.py` file starts by calling two functions - `add_geo_namespac
 	}
 }
 ```
-The animation file doesn't use any templating and doesn't have a namespace added to its identifier (yet). The namespace is added by a plugin (explained later).
 
 ### visuals/snail.geo.json
 ```json
@@ -124,7 +112,7 @@ The animation file doesn't use any templating and doesn't have a namespace added
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.snail",
+				"identifier": "geometry.nusiq.snail",
 				"visible_bounds_width": 2.0,
 				"visible_bounds_height": 2.5,
 				"visible_bounds_offset": [0, 0.75, 0],
@@ -201,21 +189,16 @@ The animation file doesn't use any templating and doesn't have a namespace added
 		}
 	]
 }
-
 ```
 
-The model file doesn't use any templating and doesn't have a namespace added to its identifier (yet). The namespace is added by a plugin (explained later).
-
-### visuals/snail.namespaced.entity.png
-```{image} ./namespacing_addons/snail.namespaced.entity.png
-:alt: snail.namespaced.entity.png
+### visuals/snail.entity.png
+```{image} ./namespacing_addons/snail.entity.png
+:alt: snail.entity.png
 :class: bg-primary
 :width: 100%
 :align: center
 :class: pixelart
 ```
-
-The texture uses the `.namespaced.entity.png` extension. The mapping is defined in the `auto_map.json` file shown later in this tutorial.
 
 ### snail.behavior.json
 ```json
@@ -223,7 +206,7 @@ The texture uses the `.namespaced.entity.png` extension. The mapping is defined 
 	"format_version": "1.20.30",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "`f'{namespace}:snail'`",
+			"identifier": "nusiq:snail",
 			"is_spawnable": true,
 			"is_summonable": true
 		},
@@ -275,7 +258,6 @@ The texture uses the `.namespaced.entity.png` extension. The mapping is defined 
 }
 
 ```
-The behavior uses {ref}`JSON template <json-template>` to insert the namespace into the identifier. This is an alternative way of adding a namespace that doesn't require writing a plugin.
 
 ### snail.entity.json
 ```json
@@ -283,18 +265,18 @@ The behavior uses {ref}`JSON template <json-template>` to insert the namespace i
 	"format_version": "1.20.30",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "`f'{namespace}:snail'`",
+			"identifier": "nusiq:snail",
 			"materials": {
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "`f'textures/entity/{namespace}/snail'`"
+				"default": "textures/nusiq/entity/snail"
 			},
 			"geometry": {
-				"default": "`f'geometry.{namespace}_snail'`"
+				"default": "geometry.nusiq.snail"
 			},
 			"animations": {
-				"walk": "`f'animation.{namespace}.snail.walk'`"
+				"walk": "animation.nusiq.snail.walk"
 			},
 			"scripts": {
 				"animate": ["walk"]
@@ -309,113 +291,41 @@ The behavior uses {ref}`JSON template <json-template>` to insert the namespace i
 }
 ```
 
-All components referenced in the file use the `namespace` variable. This variable should be defined in the global scope. The `.entity.json` files reference many other files, that's why the variable is used multiple times.
-
 ## Other Files Required By The System
 
-### auto_map.json
+As mentioned before there is nothing special about the system itself. The magic happens in the configuration.
+
+You can find the full files in [the project](https://github.com/Nusiq/System-Template-Examples/tree/3.12.0/project-3-namespacing/). This is a pretty standard configuration for System Tmplate. You can read more about it on the {ref}`Namespacing<namespacing>` page.
+
+### config.json
+
+Part of the `config.json` file with the `system_template` run configuration:
 ```json
 {
-	".behavior.json": "BP/entities",
-	".animation.json": "RP/animations",
-	".entity.json": "RP/entity",
-	".geo.json": "RP/models/entity",
-	".rc.json": "RP/render_controllers",
-	// .namespace.entity.png must be before .entity.png because otherwise, the
-	// latter will match first. Order matters!
-	".namespaced.entity.png": {
-		"target": "`f'RP/textures/entity/{namespace}'`",
-		"replace_extension": ".png"
-	},
-	".entity.png": {
-		"target": "RP/textures/entity",
-		"replace_extension": ".png"
+	"filter": "system_template",
+	"settings": {
+		"log_path": "system_template_log.json",
+		"namespace": {
+			"hook": "nusiq",
+			"keep_hook": true,
+			"target": "xyz"
+		},
+		"scope_path": "scope.json"
 	}
-    // Other rules for mapping files...
-}
+},
 ```
 
-```{note}
-The content of the file above is incomplete. For the sake of readability, only the rules relevant to this tutorial are presented here.
-```
+The `namespace` property defines the rules that make System Template replace strings like `nusiq_` with `nusiq_xyz_` etc. The exact rules are explained in the {ref}`Namespacing<namespacing>` section.
 
-The {ref}`auto_map.json <custom-auto-mapping>` file must be modified to include the `.namespaced.entity.png` extension. In normal circumstances, you would namespace every file that uses its path as an identifier and replace regular extensions (without the `.namespaced` prefix) instead of adding new ones. We're not doing that here because the files from this tutorial are part of a bigger project that contains non-namespaced systems.
+### auto_map.json
 
-Note that the file uses {ref}`JSON template <json-template>` syntax to insert the `namespace` variable into the target path.
-
-### Global scope.json
-
+Some of the mappings in the `auto_map.json` file:
 ```json
-{
-	"namespace": "nusiq_st_demo"
-}
+".mcfunction": "`f\"BP/functions/{__namespace__['hook']+'/'+__namespace__['target'] if __namespace__['keep_hook'] else __namespace__['target']}/\"`",
+".bp_item.json": "BP/items",
+".item.json": "BP/items",
+".loot.json": "`f\"BP/loot_tables/{__namespace__['hook']+'/'+__namespace__['target'] if __namespace__['keep_hook'] else __namespace__['target']}\"`",
+".recipe.json": "BP/recipes",
 ```
 
-The {ref}`global scope <global-scope>` file should be modified to include the `namespace` variable. Alternatively, you could add that variable to the system's `_scope.json` file, but if you want to use the same namespace in multiple systems, it's better to add it globally.
-
-
-(namespacing-tutorial-namespace-plugin)=
-### namespaces.py (plugin)
-
-In the `_map.py` file, we're using two functions. Their purpose is to add a namespace to the identifiers in the `snail.geo.json` and `snail.animation.json` files. We could use templating features of System Template, like we did in other files, but models and animations are often accessed by external programs for editing. Having invalid identifiers could cause problems. That's why we keep regular identifiers in the files, but System Template modifies them so that they're exported with an additional namespace.
-
-The `namespaces.py` file should be added to the global {ref}`_plugins <plugins>` directory. Adding it to the system's `_plugins` directory would work too, but it's not recommended because in normal scenarios you would probably want to use this plugin in multiple systems.
-
-Making a system rely on global plugins makes it slightly less portable, but once you start using plugins, you'll probably notice that there are some things that fit specifically into your workflow. This way, you'll likely end up developing your own version of a standard library. Adding namespaces to files is a good example of such a thing.
-
-```python
-from pathlib import Path
-from better_json_tools import load_jsonc
-import json
-from typing import Any
-
-def add_geo_namespaces(pattern: str, namespace: str) -> list[Any]:
-    '''
-    Walks model files matching the given pattern and adds a namespace prefix
-    to the geometry identifiers.
-
-    Example: geometry.my_entity -> geometry.my_namespace_my_entity
-    '''
-    for file in Path(".").glob(pattern):
-        file_walker = load_jsonc(file)
-        for desc in file_walker / "minecraft:geometry" // int / "description":
-            identifier: str = desc.data["identifier"]  # type: ignore
-            # Geometry identifiers are like "geometry.[name]", we're changing
-            # that to "geometry.[namespace]_[name]".
-            desc.data["identifier"]  = (
-                "geometry." + namespace + "_" +
-                identifier.removeprefix("geometry."))
-        with file.open('w', encoding='utf8') as f:
-            json.dump(file_walker.data, f, indent='\t')
-    return []
-
-def add_animation_namespaces(pattern: str, namespace: str) -> list[Any]:
-    '''
-    Walks animation files matching the given pattern and adds a namespace
-    prefix to the animation identifiers.
-
-    Example: animation.my_animation -> animation.my_namespace.my_animation
-    '''
-    for file in Path(".").glob(pattern):
-        anim_file_data: dict[str, Any] = load_jsonc(file).data  # type: ignore
-        for k in list(anim_file_data["animations"].keys()):
-            # Animation identifiers are like "animation.[name]", we're changing
-            # that to "animation.[namespace].[name]".
-            identifier: str = k
-            anim_file_data["animations"][
-                "animation." +
-                namespace + "." +
-                identifier.removeprefix("animation.")
-            ] = anim_file_data["animations"].pop(k)
-        with file.open('w', encoding='utf8') as f:
-            json.dump(anim_file_data, f, indent='\t')
-    return []
-```
-
-```{warning}
-The functions presented in this tutorial are simplified and don't handle all possible errors. It's recommended to throw an exception with a descriptive message when something goes wrong. The functions above just assume that the provided data is valid.
-```
-
-The `add_geo_namespaces` function adds the provided namespace to models that match the given pattern, while the `add_animation_namespaces` function adds the namespace to animation files. Both functions return an empty list, which is essential because this way, you can easily add them at the beginning of the `_map.py` file using the `+` operator, and they won't affect the rest of the map file.
-
-If you're familiar with Python, you might have noticed that the code is using the `better_json_tools` library. It's not a standard library, but it's a dependency of System Template (therefore it's always available). Better JSON tools is a library that provides a more convenient way of working with JSON files. You can read more about it in its [documentation](https://better-json-tools.readthedocs.io/en/latest/).
+As you can see some of the mappings use the `__namespace__` variable. This variable holds the same content as the `namespace` property in the `config.json` file. The output paths for auto mapping is set up in a way that matches the namespacing rules. More about it in the {ref}`Namespacing<namespacing>` section.

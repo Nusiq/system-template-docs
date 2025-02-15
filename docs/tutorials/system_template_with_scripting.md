@@ -2,7 +2,7 @@
 # System Template With Scripting
 
 ```{note}
-You can find the complete source code for this tutorial in the [Double Jump Boots](https://github.com/Nusiq/System-Template-Examples/tree/3.6.0/regolith/filters_data/system_template/double_jump_boots) system of the System Template Examples respository.
+You can find the complete source code for this tutorial in the [Double Jump Boots](https://github.com/Nusiq/System-Template-Examples/tree/3.12.0/project-1-basics/filters_data/system_template/double_jump_boots) system of the System Template Examples respository.
 ```
 
 This tutorial demonstrates a simplified JavaScript based workflow for creating systems that utilize the Scripting API. This workflow doesn't requrie using any additional dependencies, like other filters or NodeJS. For more advanced use of scripting that unlocks using TypeScript and Npm modules, see the {ref}`System Template Esbuild<system-template-esbuild>` filter. The TypeScript-based workflow is explained in detail in the {ref}`next tutorial<system-template-with-scripting-and-typescript>`.

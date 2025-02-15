@@ -2,7 +2,7 @@
 # Simple Entity
 
 ```{note}
-You can find the complete source code for this tutorial in the [Stone Golem](https://github.com/Nusiq/System-Template-Examples/tree/3.6.0/regolith/filters_data/system_template/stone_golem) system of the System Template Examples respository.
+You can find the complete source code for this tutorial in the [Stone Golem](https://github.com/Nusiq/System-Template-Examples/tree/3.12.0/project-1-basics/filters_data/system_template/stone_golem) system of the System Template Examples respository.
 ```
 
 ```{image} ./simple_entity/result.png
