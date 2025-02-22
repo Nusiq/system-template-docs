@@ -56,3 +56,6 @@ The `namespace` property is a convinient way to define replacement rules for the
 Namespace property is a dictionary that has 3 properties - `hook: str`, `target: str`, and `keep_hook: bool`. If you add `namespace` to your configuration, you have to specify `hook` and `target`. The `keep_hook` property is optional and defaults to `false`.
 
 The details of the `namespace` property are explained in the {ref}`Namespacing<namespacing>` section of the documentation.
+
+### replacements: dict[str, str]
+This property lets you define global replacement rules applied to all of the text files in every system. This feature is similar to `namespace`, but it's more flexible. The global replacements are combined with the replacements defined in the `_map.py` files. You can learn more about replacements in the {ref}`Replacements<replacements>` section of the documentation.
