@@ -6,3 +6,5 @@ Python templates are Python files with syntax similar to JSON. The {ref}`The _ma
 Python Templates must adhere to a specific structure, containing only one expression that evaluates to a dictionary or a list, both of which must be JSON serializable. The outcome of this evaluation is subsequently stored as the content of the associated JSON file.
 
 While Python Templates in System Template are based on the Pytemplate Regolith filter, it's essential to note that Pytemplate has its distinct features not present in System Template. For more in-depth information on Pytemplate, please refer to its [GitHub page](https://github.com/Nusiq/regolith-filters/tree/master/pytemplate).
+
+During the evaluation of the Python Templates, the working directory is set to the root of the system.  This way you can easily access the files of the system by using relative paths.
