@@ -44,6 +44,7 @@ Every object in the `_map.py` list follows the same structure.
 - `file_type`
 - `export_once`
 - `replacements`
+- `python_script`
 
 ### source
 
@@ -117,3 +118,6 @@ The export_once property lets you mark the files to be exported only once in cas
 ### replacements
 
 The replacements property allows you to define a list of replacements to be applied to the content of the source file. The replacements are applied before any other processing, such as JSON template evaluation or subfunctions. The `replacements` property is defined as a dictionary where the keys are the strings to be replaced, and the values are the strings to replace them with. You can read more about this feature in the {ref}`replacements<replacements>` section.
+
+### python_script
+When set to `True` this property lets you mark the file to be evaluated as a Python script, before the output of the script is passed for further processing. More information about this feature can be found in the {ref}`Python Scripts<python-scripts>` section.

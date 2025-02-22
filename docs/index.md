@@ -53,6 +53,7 @@ Editing Lang Files <subfunctions/editing_lang_files>
 :caption: Python Templates
 
 Python Templates <python_templates/python_templates>
+Python Scripts <python_templates/python_scripts>
 ```
 
 ```{toctree}
