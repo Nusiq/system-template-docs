@@ -47,11 +47,11 @@ You don't have to unpack the system in project B if you're not going to share an
 
 The `pack`, `unpack` and `undo` commands are  designed to be used with the `regolith apply-filter` command. The `apply-filter` command syntax is:
 ```
-regolith apply-filter -- <filter_name> <filter_arguments>
+regolith apply-filter <filter_name> -- <filter_arguments>
 ```
 In case of the `system_template` filter, the filter name is always `system_template`:
 ```
-regolith apply-filter -- system_template <filter_arguments>
+regolith apply-filter system_template -- <filter_arguments>
 ```
 
 ### The `pack` and `unpack` commands
@@ -62,7 +62,7 @@ The `pack` and `unpack` commands have their own flags that can be used to specif
 
 Example: Unpacking `my_system` using the `scope.json` file as the scope.
 ```
-regolith apply-filter -- system_template unpack --systems my_system --scope scope.json
+regolith apply-filter system_template -- unpack --systems my_system --scope scope.json
 ```
 
 ### The `undo` command
@@ -71,6 +71,6 @@ operation.
 
 Example: Undoing the last operation.
 ```
-regolith apply-filter -- system_template undo
+regolith apply-filter system_template -- undo
 ```
 
