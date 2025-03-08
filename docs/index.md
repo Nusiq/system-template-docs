@@ -70,6 +70,8 @@ Syntax <json_template/syntax>
 :caption: System Template Esbuild
 
 System Template Esbuild <system_template_esbuild/system_template_esbuild>
+Basic Workflow <system_template_esbuild/basic_workflow>
+Debugging Setup<system_template_esbuild/debugging>
 ```
 
 # Introduction
