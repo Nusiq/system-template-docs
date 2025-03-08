@@ -14,7 +14,7 @@ To enable the filter, add the following configuration to the filters list in the
             "filter": "system_template",
             "settings": {
                 "scope_path": "system_template/scope.json",
-                "systems": ["**/*"],
+                "systems": ["**"],
                 "prioritized_systems": [
                     "full/path/to/system1",
                     "full/path/to/system2"
@@ -42,7 +42,9 @@ The scope_path is the path to a JSON file defining the global scope of variables
 The scope property is a dictionary of variables that will be available in the templates. No variables are set by default in this scope. The variables defined in the `scope` property will override the variables defined in the `scope_path` file. You can learn more about scopes in the {ref}`Scopes And Variables<scopes-and-variables>` section of the documentation.
 
 ### systems: list[str]
-The systems property is a list of glob patterns defining which system folders the filter should process. The default value is `["**/*"]`, meaning all system folders will be processed.
+The systems property is a list of glob patterns defining which system folders the filter should process. The default value is `["**"]`, meaning all system folders will be processed.
+
+The patterns are relative to the `data/system_template` and passed to the `glob` function from the Python `pathlib` module. You can refer to the [Python documentation](https://docs.python.org/3.13/library/pathlib.html#comparison-to-the-glob-module) for more details on this specific implementation of glob patterns.
 
 ### log_path: str
 The `log_path` is the path to a file where the log will be saved. The log contains information about which files are responsible for creating the output files and in what way. It's useful for debugging. Learn more about debugging in the {ref}`Debugging<debugging>` section of the documentation. There is no default value for this property; if not set, the log will not be saved.

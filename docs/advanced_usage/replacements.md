@@ -24,4 +24,7 @@ The example above hints the primary use case of replacements - injecting values 
 
 The replacements are applied to the content of the source file, before any other operations like merging, appending or parsing (in case of JSON files). This means that if the source file is merged into a file that contains the string you're replacing, the replacement will NOT be applied to the content of the target file.
 
+## Global Replacements
 Global replacements defined in the configuration setting work exactly the same way as the replacements defined in the `_map.py` files. If both are defined for the same key, the local replacement will override the global one.
+
+The global replacements additionally apply to the {ref}`auto_map.json<custom-auto-mapping>` file.

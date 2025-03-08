@@ -57,7 +57,7 @@ regolith apply-filter system_template -- <filter_arguments>
 ### The `pack` and `unpack` commands
 The `pack` and `unpack` commands have their own flags that can be used to specify their behavior:
 
-- `--systems` - a list of glob patterns that define which systems should be packed or unpacked. The default value is `**/*` which means that all systems will be packed or unpacked. You can provide multiple patterns by separating them with a space.
+- `--systems` - a list of glob patterns that define which systems should be packed or unpacked. The default value is `**` which means that all systems will be packed or unpacked. You can provide multiple patterns by separating them with a space.
 - `--scope` - a path to a JSON file that defines the scope that will be used when evaluating the `_map.py` files. The default value is `system_template/scope.json` which means that the default scope will be used.
 
 Example: Unpacking `my_system` using the `scope.json` file as the scope.
