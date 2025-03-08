@@ -27,4 +27,4 @@ The replacements are applied to the content of the source file, before any other
 ## Global Replacements
 Global replacements defined in the configuration setting work exactly the same way as the replacements defined in the `_map.py` files. If both are defined for the same key, the local replacement will override the global one.
 
-The global replacements additionally apply to the {ref}`auto_map.json<custom-auto-mapping>` file.
+The global replacements additionally apply to the {ref}`auto_map.json<custom-auto-mapping>` file, as well as `_map.py` and `_scope.json` files of all of the systems.
