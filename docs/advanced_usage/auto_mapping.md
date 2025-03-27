@@ -10,6 +10,9 @@ There are 4 `AUTO...` keywords available:
 - `AUTO_FLAT`
 - `AUTO_FLAT_SUBFOLDER`
 
+Additionally you can use:
+- `SAME`
+
 ## Auto mapping keywords
 ### AUTO
 This mapping generates the target path based on the `auto_map.json` file and the source file's path within the system folder.
@@ -68,6 +71,20 @@ This keyword is particularly useful for grouping files within the system using f
 ]
 ```
 The evaluated target path will be `BP/entities/my_system/my_behavior.behavior.json`.
+
+### SAME
+`SAME` is a special keyword that copies the path of the file in the system folder to the target path. It's useful when you have a lot of custom files that don't have a specific mapping and you want to copy their file structure to the target directory.
+
+**Example:**
+```py
+[
+    {
+        "source": "BP/entities/my_behavior.behavior.json",
+        "target": SAME
+    }
+]
+```
+This mapping will copy the file to `BP/entities/my_behavior.behavior.json`.
 
 (the-name-of-the-system)=
 ## The "name of the system"
